@@ -11,8 +11,6 @@ namespace ConsoleApp
 	{
 		static void Main()
 		{
-			//Docent(20), lector(15), assistant(5)
-			//несколько групп студентов
 			do
 			{
 				WorkerWithAllClasses worker = new WorkerWithAllClasses();

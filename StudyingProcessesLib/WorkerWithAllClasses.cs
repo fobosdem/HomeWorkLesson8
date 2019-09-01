@@ -9,6 +9,7 @@ namespace StudyingProcessesLib
 {
 	public class WorkerWithAllClasses
 	{
+		//добавление новой группы, лектора к ней и студентов
 		public void AddingNewStudentGroup()
 		{
 			string groupName;
@@ -17,7 +18,8 @@ namespace StudyingProcessesLib
 			Student[] students = new Student[0];
 
 			Console.WriteLine();
-
+			
+			//название группы
 			do
 			{
 				Console.Write("Name of the group: ");
@@ -26,12 +28,15 @@ namespace StudyingProcessesLib
 
 			Console.WriteLine();
 
+			//имя лектора
 			do
 			{
 				Console.Write("Name of the lector: ");
 				lectorName = Console.ReadLine();
 			} while (lectorName == null);
 
+			//степень лектора
+			Console.WriteLine();
 			Console.WriteLine("Chose one of 3 degrees for the lector");
 			Console.WriteLine("1 - assistant professor");
 			Console.WriteLine("2 - lector");
@@ -55,6 +60,7 @@ namespace StudyingProcessesLib
 				lectorDegree = "postgraduate";
 			}
 
+			//добавление студентов основываясь на степень лектора (доцент - 20 студентов, лектор - 15 студентов, аспирант - 5)
 			Console.WriteLine();
 			if (degree == 1)
 			{
@@ -99,7 +105,7 @@ namespace StudyingProcessesLib
 				}
 			}
 
-
+			//добавление в темповые листы
 			ListsOfClasses.Lectors.Add(new Lector(lectorName, groupName, lectorDegree));
 			ListsOfClasses.Groups.Add(new Group(groupName, new Lector(lectorName, groupName, lectorDegree), students));
 			foreach (var student in students)
@@ -108,6 +114,7 @@ namespace StudyingProcessesLib
 			}
 		}
 
+		//вывод студенттов
 		public void OutputStudents()
 		{
 			foreach(var student in ListsOfClasses.Students)
@@ -116,6 +123,8 @@ namespace StudyingProcessesLib
 				Console.WriteLine(student.ToString());
 			}
 		}
+
+		//вывод лекторов
 		public void OutputLectors()
 		{
 			foreach (var lector in ListsOfClasses.Lectors)
@@ -124,6 +133,8 @@ namespace StudyingProcessesLib
 				Console.WriteLine(lector.ToString());
 			}
 		}
+		
+		//вывод групп со студентами и лектором
 		public void OutputAllGroups()
 		{
 			foreach (var group in ListsOfClasses.Groups)
