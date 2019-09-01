@@ -46,10 +46,12 @@ namespace StudyingProcessesLib
 			{
 				Console.Write("Lectors degree (digit): ");
 			} while (!int.TryParse(Console.ReadLine(), out degree) || degree == 0 || degree > 3);
-
+                    
+			
+			// magic numbers ... используй переменые для все чисел в коде с самодокументируемым именем
 			if (degree == 1)
 			{
-				lectorDegree = "Assistant professor";
+				lectorDegree = "Assistant professor";    // используй Enum 
 			}
 			else if (degree == 2)
 			{
@@ -92,6 +94,7 @@ namespace StudyingProcessesLib
 			}
 			else if (degree == 3)
 			{
+				// а зачем ты юзаешь Resize? 
 				Array.Resize(ref students, 5);
 				for (int i = 0; i < 5; i++)
 				{
@@ -106,7 +109,7 @@ namespace StudyingProcessesLib
 			}
 
 			//добавление в темповые листы
-			ListsOfClasses.Lectors.Add(new Lector(lectorName, groupName, lectorDegree));
+			ListsOfClasses.Lectors.Add(new Lector(lectorName, groupName, lectorDegree));  // разбивай на разные строки code в стиле Func1(Func2(Func3(b)))   плохо читается и например если ты получишь ошибку будет неудобно дебажить ты не знаешь на какой глубене в вложености у тебя проблема
 			ListsOfClasses.Groups.Add(new Group(groupName, new Lector(lectorName, groupName, lectorDegree), students));
 			foreach (var student in students)
 			{
